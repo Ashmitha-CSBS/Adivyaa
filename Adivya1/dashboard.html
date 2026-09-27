@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADIVYA | Personalized Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dashboard-page">
+    <div class="dashboard-shell">
+      <header class="dashboard-header container">
+        <div class="brand" aria-label="ADIVYA home">
+          <span class="brand-mark">🌱</span>
+          <span>ADIVYA</span>
+        </div>
+
+        <nav class="dashboard-nav" aria-label="Main navigation">
+          <button type="button" class="nav-item active" data-nav="home">Home</button>
+          <button type="button" class="nav-item" data-nav="dashboard">Dashboard</button>
+          <button type="button" class="nav-item" data-nav="opportunities">Opportunities</button>
+          <button type="button" class="nav-item" data-nav="applications">Applications</button>
+          <button type="button" class="nav-item" data-nav="documents">Documents</button>
+          <button type="button" class="nav-item" data-nav="rescue">Rescue</button>
+          <button type="button" class="nav-item" data-nav="journey">My Journey</button>
+        </nav>
+
+        <div class="dashboard-tools">
+          <label class="language-mini" aria-label="Language selector">
+            <span>🌐 Language</span>
+            <select id="dashboardLanguage">
+              <option value="en">English</option>
+              <option value="te">తెలుగు</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </label>
+          <button type="button" class="icon-button notification-toggle" aria-label="Notifications">
+            🔔
+            <span class="notification-badge" id="notificationBadge">3</span>
+          </button>
+          <button type="button" class="profile-pill" id="profileEditButton">👤 Student Profile</button>
+          <button type="button" class="logout-button" id="logoutButton">Logout</button>
+        </div>
+      </header>
+
+      <main class="dashboard-main container">
+        <section class="welcome-panel card">
+          <div class="welcome-copy">
+            <p class="eyebrow small" data-i18n="welcomeLabel">Welcome back</p>
+            <h1 id="welcomeName">Welcome back, Student 👋</h1>
+            <p class="welcome-subtitle" data-i18n="welcomeSubtitle">Here’s what’s happening with your scholarship journey today.</p>
+          </div>
+
+          <div class="student-summary card-soft">
+            <div class="summary-row">
+              <span class="summary-label" data-i18n="courseLabel">Course</span>
+              <strong id="summaryCourse">Student</strong>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label" data-i18n="institutionLabel">Institution</span>
+              <strong id="summaryInstitution">Your Institution</strong>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label" data-i18n="yearLabel">Year</span>
+              <strong id="summaryYear">1st Year</strong>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label" data-i18n="locationLabel">Location</span>
+              <strong id="summaryLocation">India</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="dashboard-grid top-grid">
+          <article class="card profile-card">
+            <div class="card-head">
+              <span class="card-kicker" data-i18n="profileCompletion">PROFILE COMPLETION</span>
+            </div>
+
+            <div class="progress-ring" id="profileProgressRing" style="--progress: 82;">
+              <span id="profileCompletionValue">82%</span>
+            </div>
+
+            <p class="card-description" id="profileCompletionText">Almost ready for personalized matching</p>
+            <button type="button" class="btn btn-primary" id="completeProfileBtn">Complete Profile →</button>
+          </article>
+
+          <article class="card next-action-panel accent-card">
+            <p class="card-kicker" data-i18n="nextBestAction">🎯 YOUR NEXT BEST ACTION</p>
+            <h2 id="nextActionTitle">Complete your scholarship profile</h2>
+            <div class="action-meta">
+              <strong data-i18n="whyMatters">Why this matters</strong>
+              <p id="nextActionReason">ADIVYA needs a few more details to give you the strongest scholarship matches.</p>
+            </div>
+            <button type="button" class="btn btn-primary" id="nextActionButton">Take Action →</button>
+          </article>
+        </section>
+
+        <section class="card opportunities-card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow small" data-i18n="opportunitiesHeading">🎯 SCHOLARSHIP OPPORTUNITIES</p>
+              <h2 id="opportunitiesFound">8 Opportunities Found</h2>
+            </div>
+
+            <div class="match-summary">
+              <span class="chip" id="strongMatchesChip">5 Strong Matches</span>
+              <span class="chip muted" id="verificationChip">2 Verification Needed</span>
+              <span class="chip muted" id="lowConfidenceChip">1 Low Confidence</span>
+            </div>
+          </div>
+
+          <div class="opportunity-grid" id="opportunityGrid"></div>
+        </section>
+
+        <section class="bottom-grid">
+          <article class="card readiness-card">
+            <div class="section-head compact-head">
+              <p class="eyebrow small" data-i18n="readinessHeading">🛡️ APPLICATION READINESS</p>
+              <h3 id="readinessValue">82% READY</h3>
+            </div>
+
+            <div class="status-list">
+              <span>Eligibility ✓</span>
+              <span>Documents ✓</span>
+              <span>Form Completion ⚠</span>
+              <span>Verification ✓</span>
+            </div>
+
+            <button type="button" class="btn btn-secondary" id="healthCheckButton">Run Health Check →</button>
+          </article>
+
+          <article class="card deadlines-card">
+            <div class="section-head compact-head">
+              <p class="eyebrow small" data-i18n="deadlinesHeading">🚨 URGENT DEADLINES</p>
+            </div>
+            <div class="deadline-list" id="deadlineList"></div>
+          </article>
+        </section>
+
+        <section class="bottom-grid">
+          <article class="card documents-card">
+            <div class="section-head compact-head">
+              <p class="eyebrow small" data-i18n="documentsHeading">🔐 DOCUMENT READINESS</p>
+              <h3 id="documentStatusText">4 / 5 Documents Ready</h3>
+            </div>
+
+            <ul class="document-list" id="documentList"></ul>
+            <button type="button" class="btn btn-secondary" id="manageDocumentsButton">Manage Documents →</button>
+          </article>
+
+          <article class="card journey-card">
+            <div class="section-head compact-head">
+              <p class="eyebrow small" data-i18n="journeyHeading">🌱 MY SCHOLARSHIP JOURNEY</p>
+            </div>
+
+            <div class="journey-tree" id="journeyTree" aria-live="polite">
+              <div class="tree-step active"><span class="tree-icon">🌱</span><small>Profile</small></div>
+              <div class="tree-arrow">↓</div>
+              <div class="tree-step"><span class="tree-icon">🌿</span><small>Application</small></div>
+              <div class="tree-arrow">↓</div>
+              <div class="tree-step"><span class="tree-icon">🌳</span><small>Award</small></div>
+              <div class="tree-arrow">↓</div>
+              <div class="tree-step"><span class="tree-icon">🌸</span><small>Renewal</small></div>
+              <div class="tree-arrow">↓</div>
+              <div class="tree-step"><span class="tree-icon">🎓</span><small>Achievement</small></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="quick-actions">
+          <button type="button" class="quick-action" data-target="opportunities">🎯 Find Opportunities</button>
+          <button type="button" class="quick-action" data-target="documents">🔐 Documents</button>
+          <button type="button" class="quick-action" data-target="rescue">🚨 Rescue Mode</button>
+          <button type="button" class="quick-action" data-target="readiness">🛡️ Health Check</button>
+          <button type="button" class="quick-action" data-target="journey">🌱 My Journey</button>
+        </section>
+      </main>
+    </div>
+
+    <div class="notification-panel hidden" id="notificationPanel" aria-live="polite">
+      <div class="notification-header">
+        <strong>ADIVYA Notifications</strong>
+        <button type="button" class="close-panel" id="closeNotificationPanel">×</button>
+      </div>
+      <div id="notificationList"></div>
+    </div>
+
+    <button type="button" class="ai-fab" id="aiAssistantToggle" aria-label="Ask ADIVYA">
+      <span>🤖</span>
+      Ask ADIVYA
+    </button>
+
+    <aside class="ai-panel hidden" id="aiPanel" aria-live="polite">
+      <div class="ai-header">
+        <div>
+          <p class="eyebrow small">ADIVYA AI</p>
+          <strong>Scholarship guidance</strong>
+        </div>
+        <button type="button" class="close-panel" id="closeAiPanel">×</button>
+      </div>
+
+      <div class="quick-questions">
+        <button type="button" class="ai-question" data-question="What should I do today?">What should I do today?</button>
+        <button type="button" class="ai-question" data-question="Why do I match?">Why do I match?</button>
+        <button type="button" class="ai-question" data-question="What documents are missing?">What documents are missing?</button>
+        <button type="button" class="ai-question" data-question="Which deadline is closest?">Which deadline is closest?</button>
+        <button type="button" class="ai-question" data-question="Am I eligible?">Am I eligible?</button>
+      </div>
+
+      <div class="ai-response" id="aiResponse">
+        You have 3 strong scholarship matches. Start with the highest-fit opportunity and complete the income certificate checklist to unlock the best options.
+      </div>
+    </aside>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <button type="button" class="mobile-item active" data-nav="home">Home</button>
+      <button type="button" class="mobile-item" data-nav="opportunities">Opportunities</button>
+      <button type="button" class="mobile-item" data-nav="applications">Applications</button>
+      <button type="button" class="mobile-item" data-nav="journey">Journey</button>
+      <button type="button" class="mobile-item" data-nav="profile">Profile</button>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

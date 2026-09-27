@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADIVYA | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-page" data-view="login">
+    <div class="auth-shell">
+      <header class="auth-topbar container">
+        <a class="brand" href="index.html" aria-label="Back to ADIVYA home">
+          <span class="brand-mark">🌱</span>
+          <span>ADIVYA</span>
+        </a>
+
+        <div class="topbar-actions">
+          <div class="language-mini" aria-label="Language selector">
+            <span>🌐 Language</span>
+            <select id="languageSelect">
+              <option value="en">English</option>
+              <option value="te">తెలుగు</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+          <span class="voice-tag">🎙️ Voice Assistance</span>
+          <a href="index.html" class="btn btn-secondary small-btn">Back to Home</a>
+        </div>
+      </header>
+
+      <main class="auth-layout container">
+        <aside class="brand-panel" aria-label="Branding panel">
+          <div class="brand-block">
+            <div class="brand-row">
+              <span class="brand-mark">🌱</span>
+              <span class="brand-name">ADIVYA</span>
+            </div>
+            <p class="brand-tagline" data-i18n="tagline">From Opportunity to Achievement</p>
+          </div>
+
+          <h1 data-i18n="panelTitle">Your scholarship journey starts here.</h1>
+
+          <div class="tree-visual" aria-label="Growing tree timeline">
+            <span>🌱</span>
+            <span class="tree-arrow">→</span>
+            <span>🌿</span>
+            <span class="tree-arrow">→</span>
+            <span>🌳</span>
+            <span class="tree-arrow">→</span>
+            <span>🎓</span>
+          </div>
+        </aside>
+
+        <section class="auth-stage" aria-live="polite">
+          <div class="auth-card view active" data-view="login">
+            <div class="auth-header">
+              <p class="eyebrow small" data-i18n="welcomeLabel">Welcome Back</p>
+              <h2 data-i18n="loginTitle">Welcome Back</h2>
+              <p data-i18n="loginSubtitle">Continue your scholarship journey with ADIVYA.</p>
+            </div>
+
+            <form class="auth-form" data-form="login">
+              <label>
+                <span data-i18n="emailLabel">Email / Mobile Number</span>
+                <input type="text" placeholder="student@college.edu / +91 98765 43210" />
+              </label>
+
+              <label>
+                <span data-i18n="passwordLabel">Password</span>
+                <input type="password" placeholder="Enter your password" />
+              </label>
+
+              <div class="form-row">
+                <label class="check-row">
+                  <input type="checkbox" checked />
+                  <span data-i18n="rememberMe">Remember me</span>
+                </label>
+                <button type="button" class="inline-link" data-action="forgot-password" data-i18n="forgotPassword">
+                  Forgot Password?
+                </button>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" data-i18n="loginButton">Login →</button>
+            </form>
+
+            <div class="divider"><span data-i18n="or">OR</span></div>
+
+            <div class="auth-actions">
+              <button type="button" class="btn btn-secondary btn-block" data-action="google" data-i18n="googleButton">
+                Continue with Google
+              </button>
+              <button type="button" class="btn btn-secondary btn-block" data-action="otp" data-i18n="otpButton">
+                Continue with Mobile OTP
+              </button>
+            </div>
+
+            <p class="auth-footer">
+              <span data-i18n="newUser">New to ADIVYA?</span>
+              <button type="button" class="inline-link inline-button" data-action="show-signup" data-i18n="createAccount">
+                Create an Account
+              </button>
+            </p>
+
+            <p class="privacy-note" data-i18n="privacyText">
+              🔐 Your information is protected and used only to personalize your scholarship journey.
+            </p>
+          </div>
+
+          <div class="auth-card view hidden" data-view="signup">
+            <div class="auth-header">
+              <p class="eyebrow small" data-i18n="signupLabel">Create Your Profile</p>
+              <h2 data-i18n="signupTitle">Create Your ADIVYA Profile</h2>
+              <p data-i18n="signupSubtitle">Tell us a little about yourself so we can find the right opportunities for you.</p>
+            </div>
+
+            <form class="auth-form" data-form="signup">
+              <label>
+                <span data-i18n="fullName">Full Name</span>
+                <input type="text" placeholder="Your name" />
+              </label>
+
+              <label>
+                <span data-i18n="emailPhone">Email / Mobile Number</span>
+                <input type="text" placeholder="student@college.edu / +91 98765 43210" />
+              </label>
+
+              <label>
+                <span data-i18n="password">Password</span>
+                <input type="password" placeholder="Create a password" />
+              </label>
+
+              <label>
+                <span data-i18n="confirmPassword">Confirm Password</span>
+                <input type="password" placeholder="Re-enter your password" />
+              </label>
+
+              <label>
+                <span data-i18n="preferredLanguage">Preferred Language</span>
+                <select>
+                  <option>🇬🇧 English</option>
+                  <option>తెలుగు Telugu</option>
+                  <option>हिन्दी Hindi</option>
+                </select>
+              </label>
+
+              <label>
+                <span data-i18n="studentType">Student Type</span>
+                <select>
+                  <option>Undergraduate</option>
+                  <option>Postgraduate</option>
+                  <option>Other</option>
+                </select>
+              </label>
+
+              <button type="submit" class="btn btn-primary btn-block" data-i18n="createProfileButton">Create My Profile →</button>
+            </form>
+
+            <p class="auth-footer">
+              <span data-i18n="existingUser">Already have an account?</span>
+              <button type="button" class="inline-link inline-button" data-action="show-login" data-i18n="loginLink">Login</button>
+            </p>
+          </div>
+
+          <div class="auth-card view hidden" data-view="otp">
+            <div class="auth-header">
+              <p class="eyebrow small" data-i18n="otpLabel">Secure verification</p>
+              <h2 data-i18n="otpTitle">Verify with Mobile OTP</h2>
+              <p data-i18n="otpSubtitle">We sent a 6-digit code to your registered mobile number.</p>
+            </div>
+
+            <form class="auth-form" data-form="otp">
+              <label>
+                <span data-i18n="otpCode">OTP Code</span>
+                <input type="text" inputmode="numeric" maxlength="6" placeholder="123456" />
+              </label>
+
+              <button type="submit" class="btn btn-primary btn-block" data-i18n="verifyOtpButton">Verify OTP →</button>
+            </form>
+
+            <p class="auth-footer">
+              <button type="button" class="inline-link inline-button" data-action="show-login" data-i18n="backToLogin">Back to Login</button>
+            </p>
+          </div>
+
+          <div class="auth-card view hidden" data-view="recovery">
+            <div class="auth-header">
+              <p class="eyebrow small" data-i18n="recoveryLabel">Account recovery</p>
+              <h2 data-i18n="recoveryTitle">Reset Your Password</h2>
+              <p data-i18n="recoverySubtitle">Enter your email or mobile number to receive a recovery link.</p>
+            </div>
+
+            <form class="auth-form" data-form="recovery">
+              <label>
+                <span data-i18n="recoveryField">Email / Mobile Number</span>
+                <input type="text" placeholder="student@college.edu / +91 98765 43210" />
+              </label>
+
+              <button type="submit" class="btn btn-primary btn-block" data-i18n="sendRecoveryButton">Send Recovery Link →</button>
+            </form>
+
+            <p class="auth-footer">
+              <button type="button" class="inline-link inline-button" data-action="show-login" data-i18n="backToLoginAlt">Back to Login</button>
+            </p>
+          </div>
+
+          <div class="auth-card view hidden" data-view="profile">
+            <div class="auth-header">
+              <p class="eyebrow small" data-i18n="profileLabel">Let’s personalize ADIVYA</p>
+              <h2 data-i18n="profileTitle">Let’s personalize ADIVYA</h2>
+              <p class="progress-text" data-i18n="profileProgress">Step 1 of 4</p>
+            </div>
+
+            <form class="auth-form" data-form="profile">
+              <div class="input-grid">
+                <label>
+                  <span data-i18n="courseLabel">Course</span>
+                  <input type="text" placeholder="B.Tech / B.Sc" />
+                </label>
+
+                <label>
+                  <span data-i18n="institutionLabel">Institution</span>
+                  <input type="text" placeholder="Your college" />
+                </label>
+              </div>
+
+              <div class="input-grid">
+                <label>
+                  <span data-i18n="yearLabel">Year of Study</span>
+                  <input type="text" placeholder="1st / 2nd / 3rd year" />
+                </label>
+
+                <label>
+                  <span data-i18n="incomeLabel">Family Income Range</span>
+                  <input type="text" placeholder="₹0 – ₹3LPA" />
+                </label>
+              </div>
+
+              <div class="input-grid">
+                <label>
+                  <span data-i18n="locationLabel">Location</span>
+                  <input type="text" placeholder="City / State" />
+                </label>
+
+                <label>
+                  <span data-i18n="categoryLabel">Relevant Student Category</span>
+                  <input type="text" placeholder="SC / ST / OBC / General" />
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" data-i18n="continueButton">Continue →</button>
+            </form>
+
+            <p class="profile-note" data-i18n="profileNote">
+              ADIVYA will use these details to find relevant scholarship opportunities.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

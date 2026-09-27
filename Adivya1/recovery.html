@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADIVYA | Recovery & Renewal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="recovery-page">
+    <div class="recovery-shell">
+      <header class="dashboard-header container">
+        <div class="brand" aria-label="ADIVYA home">
+          <span class="brand-mark">🌱</span>
+          <span>ADIVYA</span>
+        </div>
+
+        <nav class="dashboard-nav" aria-label="Main navigation">
+          <button type="button" class="nav-item" data-nav="home">Home</button>
+          <button type="button" class="nav-item" data-nav="dashboard">Dashboard</button>
+          <button type="button" class="nav-item" data-nav="opportunities">Opportunities</button>
+          <button type="button" class="nav-item" data-nav="applications">Applications</button>
+          <button type="button" class="nav-item" data-nav="documents">Documents</button>
+          <button type="button" class="nav-item" data-nav="journey">My Journey</button>
+          <button type="button" class="nav-item active" data-nav="recovery">Recovery &amp; Renewal</button>
+        </nav>
+
+        <div class="dashboard-tools">
+          <label class="language-mini" aria-label="Language selector">
+            <span>🌐 Language</span>
+            <select id="recoveryLanguage">
+              <option value="en">English</option>
+              <option value="te">తెలుగు</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </label>
+          <button type="button" class="icon-button notification-toggle" aria-label="Notifications">
+            🔔
+            <span class="notification-badge" id="notificationBadge">0</span>
+          </button>
+          <button type="button" class="profile-pill" id="profileEditButton">👤 Profile</button>
+          <button type="button" class="logout-button" id="logoutButton">Logout</button>
+        </div>
+      </header>
+
+      <main class="container recovery-main">
+        <section class="card recovery-hero">
+          <div class="recovery-top-row">
+            <div class="hero-copy-block">
+              <p class="eyebrow small">RECOVERY &amp; RENEWAL</p>
+              <h1>Scholarship Recovery</h1>
+              <p class="recovery-subtitle">Missed a deadline? ADIVYA can help you find your next opportunity.</p>
+            </div>
+            <div class="recovery-summary-mini">
+              <span class="mini-label">Missed Scholarship</span>
+              <strong id="missedScholarshipName">Engineering Excellence Grant</strong>
+              <span class="mini-meta">Deadline: <strong id="missedDeadlineText">12 Oct 2026</strong></span>
+              <span class="mini-meta status-pill danger">Deadline Passed</span>
+            </div>
+          </div>
+
+          <div class="hero-actions-row">
+            <div>
+              <p class="hero-quote">“Your Journey Doesn’t End Here.”</p>
+              <p class="hero-tagline">ADIVYA helps you recover from missed opportunities and stay on track for future scholarship renewals.</p>
+            </div>
+            <button type="button" class="btn btn-primary large" id="findAlternativesButton">Find Alternatives</button>
+          </div>
+        </section>
+
+        <section class="recovery-filters card">
+          <button type="button" class="filter-chip active" data-filter="all">All</button>
+          <button type="button" class="filter-chip" data-filter="strong">Strong Matches</button>
+          <button type="button" class="filter-chip" data-filter="deadline">Deadline Soon</button>
+          <button type="button" class="filter-chip" data-filter="docs">Documents Missing</button>
+          <button type="button" class="filter-chip" data-filter="verify">Needs Verification</button>
+        </section>
+
+        <section class="recovery-layout">
+          <article class="card recovery-panel">
+            <div class="section-head compact-head">
+              <p class="eyebrow small">ALTERNATIVE OPPORTUNITIES FOR YOU</p>
+            </div>
+            <div id="recoveryResults" class="recovery-results"></div>
+          </article>
+
+          <aside class="recovery-stack">
+            <article class="card insight-panel">
+              <div class="section-head compact-head">
+                <p class="eyebrow small">WHY ADIVYA SUGGESTED THIS</p>
+              </div>
+              <div id="whySuggestionList" class="suggestion-list"></div>
+            </article>
+
+            <article class="card plan-panel">
+              <div class="section-head compact-head">
+                <p class="eyebrow small">YOUR RECOVERY PLAN</p>
+              </div>
+              <div id="recoveryPlan" class="recovery-plan"></div>
+            </article>
+          </aside>
+        </section>
+
+        <article class="card missed-insight-panel">
+          <div class="section-head compact-head">
+            <p class="eyebrow small">MISSED OPPORTUNITY INSIGHT</p>
+          </div>
+          <div id="missedInsight" class="missed-insight"></div>
+        </article>
+
+        <section class="card renewal-section">
+          <div class="renewal-header-block">
+            <div>
+              <p class="eyebrow small">RENEWAL</p>
+              <h2>Scholarship Renewal</h2>
+              <p class="renewal-subtitle">Keep your support going year after year.</p>
+            </div>
+            <div class="renewal-status-badge">✓ Awarded</div>
+          </div>
+
+          <div class="awarded-card-row">
+            <div class="awarded-card">
+              <span class="label">SCHOLARSHIP</span>
+              <strong id="renewalScholarshipName">National Merit Scholarship</strong>
+              <div class="two-column">
+                <div><span>Current Year</span><strong id="renewalYear">2026–27</strong></div>
+                <div><span>Status</span><strong>✓ Awarded</strong></div>
+              </div>
+              <div class="renewal-footnote">Renewal: <strong>Required next year</strong></div>
+            </div>
+
+            <div class="readiness-box">
+              <div class="readiness-header">
+                <span>Renewal Readiness</span>
+                <strong id="renewalReadinessValue">82%</strong>
+              </div>
+              <div class="progress-track"><span id="renewalProgressBar"></span></div>
+              <div class="readiness-note" id="renewalRequirementSummary">✓ 4 requirements complete<br />⚠ 1 requirement needs attention</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="renewal-layout-grid">
+          <article class="card renewal-panel">
+            <div class="section-head compact-head">
+              <p class="eyebrow small">RENEWAL TIMELINE</p>
+            </div>
+            <div id="renewalTimeline" class="renewal-timeline"></div>
+          </article>
+
+          <article class="card requirement-panel">
+            <div class="section-head compact-head">
+              <p class="eyebrow small">RENEWAL REQUIREMENTS</p>
+            </div>
+            <div id="renewalRequirements" class="requirement-list"></div>
+          </article>
+        </section>
+
+        <section class="renewal-bottom-grid">
+          <article class="card deadline-panel">
+            <div class="section-head compact-head">
+              <p class="eyebrow small">RENEWAL DEADLINE</p>
+            </div>
+            <div class="deadline-box">
+              <strong id="renewalDeadlineText">24 days remaining</strong>
+              <button type="button" class="btn btn-secondary" id="renewalRescueButton">Start Rescue Mode</button>
+            </div>
+            <div id="renewalReminders" class="reminder-list"></div>
+          </article>
+
+          <article class="card trustvault-panel">
+            <div class="section-head compact-head">
+              <p class="eyebrow small">TRUSTVAULT CONNECTION</p>
+            </div>
+            <div id="trustVaultStatus" class="trustvault-status"></div>
+          </article>
+        </section>
+
+        <section class="card renewal-form-card hidden" id="renewalFormCard">
+          <div class="section-head compact-head">
+            <p class="eyebrow small">PREFILLED RENEWAL</p>
+            <h3>Start Renewal</h3>
+          </div>
+
+          <form id="renewalForm" class="renewal-form">
+            <div class="form-grid-two">
+              <label>
+                <span>Name</span>
+                <input type="text" id="renewalName" name="name" />
+              </label>
+              <label>
+                <span>Course</span>
+                <input type="text" id="renewalCourse" name="course" />
+              </label>
+              <label>
+                <span>Institution</span>
+                <input type="text" id="renewalInstitution" name="institution" />
+              </label>
+              <label>
+                <span>Scholarship</span>
+                <input type="text" id="renewalScholarship" name="scholarship" />
+              </label>
+              <label>
+                <span>Previous Award Details</span>
+                <input type="text" id="renewalAwardDetails" name="previousAward" />
+              </label>
+              <label>
+                <span>Documents</span>
+                <input type="text" id="renewalDocuments" name="documents" />
+              </label>
+            </div>
+            <div class="review-actions">
+              <button type="button" class="btn btn-secondary" id="closeRenewalForm">Cancel</button>
+              <button type="button" class="btn btn-primary" id="submitRenewalButton">Submit Renewal</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card journey-panel">
+          <div class="section-head compact-head">
+            <p class="eyebrow small">MY SCHOLARSHIP JOURNEY</p>
+          </div>
+          <div class="tree-box">
+            <div id="growingTree" class="growing-tree"></div>
+            <div id="renewalHistory" class="history-list compact-history"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <button type="button" class="ai-fab" id="aiAssistantToggle" aria-label="Ask ADIVYA">
+      <span>🤖</span>
+      Ask ADIVYA
+    </button>
+
+    <aside class="ai-panel hidden" id="aiPanel" aria-live="polite">
+      <div class="ai-header">
+        <div>
+          <p class="eyebrow small">ADIVYA AI</p>
+          <strong>Recovery &amp; Renewal guidance</strong>
+        </div>
+        <button type="button" class="close-panel" id="closeAiPanel">×</button>
+      </div>
+
+      <div class="quick-questions">
+        <button type="button" class="ai-question" data-question="What can I apply for after missing this scholarship?">What can I apply for after missing this scholarship?</button>
+        <button type="button" class="ai-question" data-question="Which alternative matches me?">Which alternative matches me?</button>
+        <button type="button" class="ai-question" data-question="When is my renewal deadline?">When is my renewal deadline?</button>
+        <button type="button" class="ai-question" data-question="What documents do I need for renewal?">What documents do I need for renewal?</button>
+        <button type="button" class="ai-question" data-question="Can I reuse my previous documents?">Can I reuse my previous documents?</button>
+      </div>
+
+      <div class="ai-response" id="aiResponse">ADIVYA is checking what you can recover and what to do next to keep your scholarship journey moving.</div>
+    </aside>
+
+    <div class="notification-panel hidden" id="notificationPanel" aria-live="polite">
+      <div class="notification-header">
+        <strong>ADIVYA Notifications</strong>
+        <button type="button" class="close-panel" id="closeNotificationPanel">×</button>
+      </div>
+      <div id="notificationList"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

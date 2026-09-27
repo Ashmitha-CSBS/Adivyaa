@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADIVYA | Rescue Mode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="rescue-page">
+    <div class="rescue-shell">
+      <header class="dashboard-header container">
+        <div class="brand" aria-label="ADIVYA home">
+          <span class="brand-mark">🌱</span>
+          <span>ADIVYA</span>
+        </div>
+
+        <nav class="dashboard-nav" aria-label="Main navigation">
+          <button type="button" class="nav-item" data-nav="home">Home</button>
+          <button type="button" class="nav-item" data-nav="dashboard">Dashboard</button>
+          <button type="button" class="nav-item" data-nav="opportunities">Opportunities</button>
+          <button type="button" class="nav-item" data-nav="applications">Applications</button>
+          <button type="button" class="nav-item" data-nav="documents">Documents</button>
+          <button type="button" class="nav-item active" data-nav="rescue">Rescue</button>
+        </nav>
+
+        <div class="dashboard-tools">
+          <label class="language-mini" aria-label="Language selector">
+            <span>🌐 Language</span>
+            <select id="rescueLanguage">
+              <option value="en">English</option>
+              <option value="te">తెలుగు</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </label>
+          <button type="button" class="icon-button notification-toggle" aria-label="Notifications">
+            🔔
+            <span class="notification-badge" id="notificationBadge">1</span>
+          </button>
+          <button type="button" class="profile-pill" id="profileEditButton">👤 Profile</button>
+          <button type="button" class="logout-button" id="logoutButton">Logout</button>
+        </div>
+      </header>
+
+      <main class="container rescue-main">
+        <section class="card rescue-hero">
+          <div class="rescue-top-bar">
+            <div class="rescue-status">🚨 RESCUE MODE ACTIVE</div>
+            <div class="voice-tag">🎙 Voice Assistance</div>
+          </div>
+
+          <div class="rescue-header-block">
+            <div>
+              <p class="eyebrow small">ADIVYA</p>
+              <h1>Scholarship Rescue Mode</h1>
+              <p class="rescue-subtitle">Your deadline is approaching. ADIVYA will focus only on what you need to do next.</p>
+            </div>
+
+            <div class="countdown-box">
+              <div class="countdown-value" id="countdownValue">17h 42m</div>
+              <div class="countdown-label" id="countdownLabel">remaining</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="rescue-grid">
+          <article class="card rescue-summary-card">
+            <div class="section-head compact-head">
+              <p class="eyebrow small">Scholarship Summary</p>
+            </div>
+            <div id="scholarshipSummary"></div>
+          </article>
+
+          <article class="card rescue-action-card">
+            <p class="eyebrow small">YOUR NEXT BEST ACTION</p>
+            <h2 id="nextActionTitle">Upload Income Certificate</h2>
+            <p id="nextActionText">This is the only missing document preventing you from completing the application.</p>
+            <button type="button" class="btn btn-primary btn-block" id="nextActionButton">Fix This Now</button>
+          </article>
+        </section>
+
+        <section class="card rescue-checklist-card">
+          <div class="section-head compact-head">
+            <p class="eyebrow small">Complete These Before the Deadline</p>
+          </div>
+          <div id="rescueChecklist" class="rescue-checklist"></div>
+        </section>
+
+        <section class="rescue-progress-grid">
+          <article class="card progress-card">
+            <div class="section-head compact-head">
+              <p class="eyebrow small">APPLICATION READINESS</p>
+            </div>
+            <div class="readiness-stack">
+              <strong id="rescueReadinessValue">78%</strong>
+              <div class="progress-track">
+                <span id="rescueProgressBar"></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card blocker-card" id="blockerCard">
+            <div class="section-head compact-head">
+              <p class="eyebrow small">BLOCKING ISSUE</p>
+            </div>
+            <div id="blockerContent"></div>
+          </article>
+        </section>
+
+        <section class="card rescue-quickfix-card">
+          <div class="section-head compact-head">
+            <p class="eyebrow small">Document Quick Fix</p>
+          </div>
+          <div id="documentQuickFix"></div>
+        </section>
+
+        <section class="card rescue-protection-card">
+          <div class="section-head compact-head">
+            <div>
+              <p class="eyebrow small">Application Protection</p>
+              <h3>Application Protection Check</h3>
+            </div>
+            <button type="button" class="btn btn-secondary" id="runProtectionBtn">Run Final Check</button>
+          </div>
+          <div id="protectionStatus"></div>
+        </section>
+
+        <section class="card rescue-review-card hidden" id="finalReviewCard">
+          <div class="section-head compact-head">
+            <p class="eyebrow small">Final Review</p>
+            <h3>Review carefully before submitting.</h3>
+          </div>
+          <ul id="reviewChecklist" class="review-list"></ul>
+          <div class="review-actions">
+            <button type="button" class="btn btn-secondary" id="goBackButton">Go Back</button>
+            <button type="button" class="btn btn-primary" id="confirmSubmitButton">Confirm &amp; Submit</button>
+          </div>
+        </section>
+
+        <section class="card confirmation-card hidden" id="confirmationCard">
+          <div class="confirmation-mark">✓</div>
+          <div>
+            <p class="eyebrow small">APPLICATION SUBMITTED</p>
+            <h3 id="submittedScholarshipName">Scholarship</h3>
+            <p id="submittedDateText">Submitted: --</p>
+            <p class="confirmation-status">Submitted successfully</p>
+            <p class="next-step-text">Your next step</p>
+            <p>Track your application from Applications.</p>
+            <button type="button" class="btn btn-primary" id="viewApplicationButton">View Application</button>
+          </div>
+        </section>
+
+        <section class="card rescue-timeline-card">
+          <div class="section-head compact-head">
+            <p class="eyebrow small">Rescue Timeline</p>
+          </div>
+          <div id="rescueTimeline" class="rescue-timeline"></div>
+        </section>
+      </main>
+    </div>
+
+    <button type="button" class="ai-fab" id="aiAssistantToggle" aria-label="Ask ADIVYA">
+      <span>🤖</span>
+      Ask ADIVYA
+    </button>
+
+    <aside class="ai-panel hidden" id="aiPanel" aria-live="polite">
+      <div class="ai-header">
+        <div>
+          <p class="eyebrow small">ADIVYA AI</p>
+          <strong>Rescue guidance</strong>
+        </div>
+        <button type="button" class="close-panel" id="closeAiPanel">×</button>
+      </div>
+      <div class="quick-questions">
+        <button type="button" class="ai-question" data-question="What should I do first?">What should I do first?</button>
+        <button type="button" class="ai-question" data-question="What is blocking my application?">What is blocking my application?</button>
+        <button type="button" class="ai-question" data-question="Which document is missing?">Which document is missing?</button>
+        <button type="button" class="ai-question" data-question="How much time do I have?">How much time do I have?</button>
+        <button type="button" class="ai-question" data-question="Am I ready to submit?">Am I ready to submit?</button>
+      </div>
+      <div class="ai-response" id="aiResponse">ADIVYA is organizing the next action that matters most.</div>
+    </aside>
+
+    <div class="notification-panel hidden" id="notificationPanel" aria-live="polite">
+      <div class="notification-header">
+        <strong>ADIVYA Notifications</strong>
+        <button type="button" class="close-panel" id="closeNotificationPanel">×</button>
+      </div>
+      <div id="notificationList"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

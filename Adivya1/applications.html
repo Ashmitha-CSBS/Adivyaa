@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADIVYA | Application Protection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="applications-page">
+    <div class="application-shell">
+      <header class="dashboard-header container">
+        <div class="brand" aria-label="ADIVYA home">
+          <span class="brand-mark">🌱</span>
+          <span>ADIVYA</span>
+        </div>
+
+        <nav class="dashboard-nav" aria-label="Main navigation">
+          <button type="button" class="nav-item" data-nav="home">Home</button>
+          <button type="button" class="nav-item" data-nav="dashboard">Dashboard</button>
+          <button type="button" class="nav-item" data-nav="opportunities">Opportunities</button>
+          <button type="button" class="nav-item active" data-nav="applications">Applications</button>
+          <button type="button" class="nav-item" data-nav="documents">Documents</button>
+          <button type="button" class="nav-item" data-nav="journey">My Journey</button>
+        </nav>
+
+        <div class="dashboard-tools">
+          <label class="language-mini" aria-label="Language selector">
+            <span>🌐 Language</span>
+            <select id="applicationLanguage">
+              <option value="en">English</option>
+              <option value="te">తెలుగు</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </label>
+          <button type="button" class="icon-button notification-toggle" aria-label="Notifications">
+            🔔
+            <span class="notification-badge" id="notificationBadge">0</span>
+          </button>
+          <button type="button" class="profile-pill" id="profileEditButton">👤 Profile</button>
+          <button type="button" class="logout-button" id="logoutButton">Logout</button>
+        </div>
+      </header>
+
+      <main class="container application-main">
+        <section class="card app-hero">
+          <div class="app-header-top">
+            <div>
+              <p class="eyebrow small">APPLICATION PROTECTION ENGINE</p>
+              <h1>Protect Your Application</h1>
+              <p class="app-subtitle">ADIVYA checks your application before you submit — so small mistakes don’t become missed opportunities.</p>
+            </div>
+            <div class="voice-tag">🎙 Voice Assistance</div>
+            <div class="application-meta-card">
+              <div class="meta-row">
+                <span>Scholarship</span>
+                <strong id="scholarshipNameMeta">—</strong>
+              </div>
+              <div class="meta-row">
+                <span>Provider</span>
+                <strong id="providerMeta">—</strong>
+              </div>
+              <div class="meta-row">
+                <span>Deadline</span>
+                <strong id="deadlineMeta">—</strong>
+              </div>
+              <div class="meta-row status-row">
+                <span>Application Status</span>
+                <strong id="applicationStatusMeta">In Progress</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <div class="meta-pill">Save &amp; Exit</div>
+            <button type="button" class="btn btn-secondary" id="saveApplicationButton">Save &amp; Exit</button>
+          </div>
+        </section>
+
+        <section class="readiness-grid">
+          <article class="card readiness-card">
+            <p class="eyebrow small">APPLICATION READINESS</p>
+            <div class="readiness-display">
+              <div class="readiness-score" id="readinessScore">86%</div>
+              <div class="readiness-details" id="readinessDetails">
+                <div class="mini-row"><span>Profile</span><strong>✓ Complete</strong></div>
+                <div class="mini-row"><span>Eligibility</span><strong>✓ Checked</strong></div>
+                <div class="mini-row"><span>Documents</span><strong id="documentReadinessValue">8 / 8</strong></div>
+                <div class="mini-row"><span>Consistency</span><strong id="consistencyStatusValue">⚠ 1 issue</strong></div>
+                <div class="mini-row"><span>Submission</span><strong id="submissionStatusValue">Not ready</strong></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card scan-card">
+            <p class="eyebrow small">PROTECTION SCAN</p>
+            <button type="button" class="btn btn-primary huge-btn" id="runProtectionButton">Run Protection Check</button>
+            <div class="scan-sequence" id="scanSequence">
+              <span>Ready for review</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="card results-panel">
+          <div class="section-head compact-head">
+            <p class="eyebrow small">CHECK RESULTS</p>
+          </div>
+          <div id="resultsGrid" class="results-grid"></div>
+        </section>
+
+        <section class="details-grid">
+          <article class="card details-card">
+            <div class="section-head compact-head">
+              <p class="eyebrow small">COMPLETENESS CHECK</p>
+            </div>
+            <div id="completenessCheck" class="check-list"></div>
+          </article>
+
+          <article class="card details-card">
+            <div class="section-head compact-head">
+              <p class="eyebrow small">THINGS YOU NEED TO FIX</p>
+            </div>
+            <div id="issueList" class="issue-list"></div>
+          </article>
+        </section>
+
+        <section class="card app-form-panel">
+          <div class="section-head compact-head">
+            <p class="eyebrow small">APPLICATION FORM</p>
+            <h3>Application details</h3>
+          </div>
+
+          <form id="applicationForm" class="application-form">
+            <div class="form-grid">
+              <label>
+                <span>Name</span>
+                <input type="text" id="fieldName" name="name" />
+              </label>
+              <label>
+                <span>Date of Birth</span>
+                <input type="date" id="fieldDob" name="dob" />
+              </label>
+              <label>
+                <span>Mobile Number</span>
+                <input type="tel" id="fieldMobile" name="mobile" />
+              </label>
+              <label>
+                <span>Institution</span>
+                <input type="text" id="fieldInstitution" name="institution" />
+              </label>
+              <label>
+                <span>Course</span>
+                <input type="text" id="fieldCourse" name="course" />
+              </label>
+              <label>
+                <span>Semester</span>
+                <input type="text" id="fieldSemester" name="semester" />
+              </label>
+              <label>
+                <span>Family Income</span>
+                <input type="text" id="fieldIncome" name="income" />
+              </label>
+              <label>
+                <span>Category</span>
+                <input type="text" id="fieldCategory" name="category" />
+              </label>
+            </div>
+          </form>
+        </section>
+
+        <section class="card review-panel hidden" id="finalReviewCard">
+          <div class="section-head compact-head">
+            <p class="eyebrow small">FINAL REVIEW</p>
+            <h3>Ready for review</h3>
+          </div>
+
+          <div class="review-summary-grid">
+            <div class="review-item"><span>Student</span><strong id="reviewStudent">—</strong></div>
+            <div class="review-item"><span>Course</span><strong id="reviewCourse">—</strong></div>
+            <div class="review-item"><span>Institution</span><strong id="reviewInstitution">—</strong></div>
+            <div class="review-item"><span>Scholarship</span><strong id="reviewScholarship">—</strong></div>
+            <div class="review-item"><span>Amount</span><strong id="reviewAmount">—</strong></div>
+            <div class="review-item"><span>Deadline</span><strong id="reviewDeadline">—</strong></div>
+            <div class="review-item"><span>Documents</span><strong id="reviewDocuments">—</strong></div>
+            <div class="review-item"><span>Eligibility</span><strong id="reviewEligibility">—</strong></div>
+            <div class="review-item"><span>Application details</span><strong id="reviewApplication">—</strong></div>
+          </div>
+
+          <label class="confirm-box">
+            <input type="checkbox" id="reviewCheckbox" />
+            <span>I have reviewed my information.</span>
+          </label>
+
+          <div class="review-actions">
+            <button type="button" class="btn btn-secondary" id="reviewGoBackButton">Go Back</button>
+            <button type="button" class="btn btn-primary" id="continueSubmissionButton" disabled>Continue to Submission</button>
+          </div>
+        </section>
+
+        <section class="card history-panel">
+          <div class="section-head compact-head">
+            <p class="eyebrow small">APPLICATION PROTECTION HISTORY</p>
+          </div>
+          <div id="applicationHistory" class="history-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="notification-panel hidden" id="notificationPanel" aria-live="polite">
+      <div class="notification-header">
+        <strong>ADIVYA Notifications</strong>
+        <button type="button" class="close-panel" id="closeNotificationPanel">×</button>
+      </div>
+      <div id="notificationList"></div>
+    </div>
+
+    <button type="button" class="ai-fab" id="aiAssistantToggle" aria-label="Ask ADIVYA">
+      <span>🤖</span>
+      Ask ADIVYA
+    </button>
+
+    <aside class="ai-panel hidden" id="aiPanel" aria-live="polite">
+      <div class="ai-header">
+        <div>
+          <p class="eyebrow small">ADIVYA AI</p>
+          <strong>Application guidance</strong>
+        </div>
+        <button type="button" class="close-panel" id="closeAiPanel">×</button>
+      </div>
+
+      <div class="quick-questions">
+        <button type="button" class="ai-question" data-question="Why isn't my application ready?">Why isn't my application ready?</button>
+        <button type="button" class="ai-question" data-question="What is blocking submission?">What is blocking submission?</button>
+        <button type="button" class="ai-question" data-question="What documents are missing?">What documents are missing?</button>
+        <button type="button" class="ai-question" data-question="Why did my readiness score change?">Why did my readiness score change?</button>
+        <button type="button" class="ai-question" data-question="Can I submit now?">Can I submit now?</button>
+      </div>
+
+      <div class="ai-response" id="aiResponse">ADIVYA is checking your application state and identifying the most important issue to fix first.</div>
+    </aside>
+
+    <div class="modal hidden" id="submissionModal" aria-modal="true" role="dialog">
+      <div class="modal-backdrop"></div>
+      <div class="modal-panel">
+        <div class="modal-header">
+          <h3>Submit Application?</h3>
+          <button type="button" class="close-panel" data-close-modal="submissionModal">×</button>
+        </div>
+        <p>Please confirm that the information and documents you provided are correct.</p>
+        <div class="review-actions">
+          <button type="button" class="btn btn-secondary" data-close-modal="submissionModal">Go Back</button>
+          <button type="button" class="btn btn-primary" id="confirmSubmitButton">Confirm Submission</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

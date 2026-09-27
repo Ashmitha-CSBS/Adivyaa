@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADIVYA | Student Profile Setup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="profile-page">
+    <div class="profile-shell">
+      <header class="profile-header container">
+        <a class="brand" href="index.html" aria-label="ADIVYA home">
+          <span class="brand-mark">🌱</span>
+          <span>ADIVYA</span>
+        </a>
+
+        <div class="topbar-actions">
+          <div class="language-mini" aria-label="Language selector">
+            <span>🌐 Language</span>
+            <select id="languageSelect">
+              <option value="en">English</option>
+              <option value="te">తెలుగు</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+          <span class="voice-tag">🎙️ Voice Assistance</span>
+        </div>
+      </header>
+
+      <main class="profile-layout container">
+        <section class="profile-main">
+          <div class="profile-intro">
+            <p class="eyebrow small">Profile Setup</p>
+            <h1>Let’s personalize ADIVYA</h1>
+            <p>Tell us a little about yourself. We’ll use your profile to find relevant scholarship opportunities.</p>
+          </div>
+
+          <div class="progress-section">
+            <div class="progress-header">
+              <span>PROFILE COMPLETION</span>
+              <strong class="step-counter">Step 1 of 4</strong>
+            </div>
+
+            <div class="step-progress" aria-label="Profile completion progress">
+              <span class="progress-dot active"></span>
+              <span class="line"></span>
+              <span class="progress-dot"></span>
+              <span class="line"></span>
+              <span class="progress-dot"></span>
+              <span class="line"></span>
+              <span class="progress-dot"></span>
+            </div>
+
+            <div class="progress-labels">
+              <span class="progress-label active">Basic Details</span>
+              <span class="progress-label">Education</span>
+              <span class="progress-label">Eligibility</span>
+              <span class="progress-label">Preferences</span>
+            </div>
+          </div>
+
+          <div class="profile-steps">
+            <section class="step-panel active" data-step="1">
+              <div class="panel-header">
+                <h2>Basic Details</h2>
+              </div>
+
+              <div class="field-grid">
+                <label>
+                  <span>FULL NAME</span>
+                  <input type="text" name="fullName" placeholder="Enter your name" />
+                </label>
+
+                <label>
+                  <span>DATE OF BIRTH</span>
+                  <input type="date" name="dob" />
+                </label>
+              </div>
+
+              <div class="field-grid location-grid">
+                <label>
+                  <span>LOCATION</span>
+                  <input type="text" name="state" placeholder="State" />
+                </label>
+                <label>
+                  <span class="muted-label">District</span>
+                  <input type="text" name="district" placeholder="District" />
+                </label>
+              </div>
+
+              <p class="helper-text">Your location helps ADIVYA identify scholarships available in your region.</p>
+            </section>
+
+            <section class="step-panel hidden" data-step="2">
+              <div class="panel-header">
+                <h2>Tell us about your education</h2>
+              </div>
+
+              <div class="field-grid">
+                <label>
+                  <span>COURSE / PROGRAM</span>
+                  <select name="course">
+                    <option value="">Select your course</option>
+                    <option>B.Tech</option>
+                    <option>B.Sc</option>
+                    <option>B.Com</option>
+                    <option>B.A.</option>
+                    <option>M.Tech</option>
+                    <option>M.Sc</option>
+                    <option>Diploma</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>INSTITUTION</span>
+                  <input type="text" name="institution" placeholder="Enter institution" />
+                </label>
+              </div>
+
+              <div class="field-grid">
+                <label>
+                  <span>YEAR OF STUDY</span>
+                  <select name="year">
+                    <option value="">Select year</option>
+                    <option>1st Year</option>
+                    <option>2nd Year</option>
+                    <option>3rd Year</option>
+                    <option>4th Year</option>
+                    <option>Postgraduate 1</option>
+                    <option>Postgraduate 2</option>
+                  </select>
+                </label>
+
+                <div class="radio-group">
+                  <span>EDUCATION LEVEL</span>
+                  <label class="radio-option"><input type="radio" name="educationLevel" value="Undergraduate" /> Undergraduate</label>
+                  <label class="radio-option"><input type="radio" name="educationLevel" value="Postgraduate" /> Postgraduate</label>
+                  <label class="radio-option"><input type="radio" name="educationLevel" value="Other" /> Other</label>
+                </div>
+              </div>
+
+              <p class="helper-text">Your course and institution help ADIVYA identify education-specific opportunities.</p>
+            </section>
+
+            <section class="step-panel hidden" data-step="3">
+              <div class="panel-header">
+                <h2>Help us understand your eligibility</h2>
+              </div>
+
+              <div class="field-grid">
+                <label>
+                  <span>FAMILY INCOME RANGE</span>
+                  <select name="incomeRange">
+                    <option value="">Select range</option>
+                    <option>Below ₹1 LPA</option>
+                    <option>₹1 – ₹3 LPA</option>
+                    <option>₹3 – ₹6 LPA</option>
+                    <option>₹6 – ₹10 LPA</option>
+                    <option>Above ₹10 LPA</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>STUDENT CATEGORY</span>
+                  <select name="studentCategory">
+                    <option value="">Select applicable category</option>
+                    <option>General</option>
+                    <option>OBC</option>
+                    <option>SC</option>
+                    <option>ST</option>
+                    <option>EWS</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="field-grid single-field">
+                <label>
+                  <span>STATE / RESIDENCE</span>
+                  <select name="residenceState">
+                    <option value="">Select state</option>
+                    <option>Andhra Pradesh</option>
+                    <option>Telangana</option>
+                    <option>Karnataka</option>
+                    <option>Tamil Nadu</option>
+                    <option>Maharashtra</option>
+                    <option>Delhi</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+              </div>
+
+              <p class="helper-text privacy-text">🔐 Your information is used to personalize scholarship matching.</p>
+            </section>
+
+            <section class="step-panel hidden" data-step="4">
+              <div class="panel-header">
+                <h2>How would you like ADIVYA to help?</h2>
+              </div>
+
+              <div class="preference-grid">
+                <button type="button" class="preference-card" data-preference="Find Scholarships">
+                  <span class="pref-icon">🎯</span>
+                  <strong>Find Scholarships</strong>
+                  <small>Discover relevant opportunities</small>
+                </button>
+
+                <button type="button" class="preference-card" data-preference="Explain Eligibility">
+                  <span class="pref-icon">🧠</span>
+                  <strong>Explain Eligibility</strong>
+                  <small>Understand why you qualify</small>
+                </button>
+
+                <button type="button" class="preference-card" data-preference="Document Guidance">
+                  <span class="pref-icon">📄</span>
+                  <strong>Document Guidance</strong>
+                  <small>Know what documents are needed</small>
+                </button>
+
+                <button type="button" class="preference-card" data-preference="Deadline Support">
+                  <span class="pref-icon">⏰</span>
+                  <strong>Deadline Support</strong>
+                  <small>Stay on top of deadlines</small>
+                </button>
+
+                <button type="button" class="preference-card" data-preference="Regional Language">
+                  <span class="pref-icon">🌐</span>
+                  <strong>Regional Language</strong>
+                  <small>Receive guidance in your preferred language</small>
+                </button>
+
+                <button type="button" class="preference-card" data-preference="Voice Assistance">
+                  <span class="pref-icon">🎙️</span>
+                  <strong>Voice Assistance</strong>
+                  <small>Use voice to interact with ADIVYA</small>
+                </button>
+              </div>
+
+              <div class="language-block">
+                <div class="language-head">
+                  <h3>🌐 PREFERRED LANGUAGE</h3>
+                </div>
+
+                <div class="language-grid">
+                  <button type="button" class="language-card selected" data-language="English" data-language-code="en">
+                    🇬🇧 English
+                  </button>
+                  <button type="button" class="language-card" data-language="తెలుగు" data-language-code="te">
+                    తెలుగు
+                  </button>
+                  <button type="button" class="language-card" data-language="हिन्दी" data-language-code="hi">
+                    हिन्दी
+                  </button>
+                </div>
+
+                <p class="small-note">🎙️ Voice Assistance</p>
+                <p class="helper-text">Use voice input and receive guidance in your preferred language.</p>
+              </div>
+            </section>
+          </div>
+
+          <div class="profile-actions">
+            <div class="status-wrap">
+              <span class="status-badge completion-percent">Profile completion: 0%</span>
+              <span class="result-status">Complete your profile</span>
+            </div>
+            <div class="action-row">
+              <button type="button" class="btn btn-secondary profile-back">Back</button>
+              <button type="button" class="btn btn-primary profile-next">Continue →</button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="profile-visual" aria-label="Growing tree illustration">
+          <div class="visual-card">
+            <div class="visual-badge">ADIVYA Journey</div>
+            <div class="plant-visual" aria-live="polite">
+              <span class="plant-stage">🌱</span>
+            </div>
+            <div class="visual-labels">
+              <span>Seed</span>
+              <span>Sapling</span>
+              <span>Growing Tree</span>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
