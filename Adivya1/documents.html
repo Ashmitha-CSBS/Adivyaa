@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADIVYA | TrustVault</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="documents-page">
+    <div class="documents-shell">
+      <header class="dashboard-header container">
+        <div class="brand" aria-label="ADIVYA home">
+          <span class="brand-mark">🌱</span>
+          <span>ADIVYA</span>
+        </div>
+
+        <nav class="dashboard-nav" aria-label="Main navigation">
+          <button type="button" class="nav-item" data-nav="home">Home</button>
+          <button type="button" class="nav-item" data-nav="dashboard">Dashboard</button>
+          <button type="button" class="nav-item" data-nav="opportunities">Opportunities</button>
+          <button type="button" class="nav-item" data-nav="applications">Applications</button>
+          <button type="button" class="nav-item active" data-nav="documents">Documents</button>
+          <button type="button" class="nav-item" data-nav="journey">My Journey</button>
+        </nav>
+
+        <div class="dashboard-tools">
+          <label class="language-mini" aria-label="Language selector">
+            <span>🌐 Language</span>
+            <select id="documentsLanguage">
+              <option value="en">English</option>
+              <option value="te">తెలుగు</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </label>
+          <button type="button" class="icon-button notification-toggle" aria-label="Notifications">
+            🔔
+            <span class="notification-badge" id="notificationBadge">3</span>
+          </button>
+          <button type="button" class="profile-pill" id="profileEditButton">👤 Profile</button>
+          <button type="button" class="logout-button" id="logoutButton">Logout</button>
+        </div>
+      </header>
+
+      <main class="documents-main container">
+        <section class="card trustvault-security">
+          <div class="security-row">
+            <div>
+              <p class="eyebrow small">TrustVault</p>
+              <h1>Your Documents. One Secure Vault.</h1>
+              <p class="security-subtitle">Store, verify and reuse your scholarship documents without starting from zero every time.</p>
+            </div>
+
+            <div class="security-badges">
+              <span>🔒 Secure Storage</span>
+              <span>✓ Consent-Based Sharing</span>
+              <span>✓ Document Verification</span>
+              <span>✓ Reusable Documents</span>
+            </div>
+          </div>
+
+          <div class="security-actions">
+            <button type="button" class="btn btn-primary" id="addDocumentBtn">+ Add Document</button>
+            <button type="button" class="btn btn-secondary" id="privacyCenterBtn">Privacy Center</button>
+          </div>
+        </section>
+
+        <section class="summary-grid">
+          <article class="card readiness-card">
+            <div class="section-head compact-head">
+              <p class="eyebrow small">Document Readiness</p>
+            </div>
+
+            <div class="readiness-stats">
+              <div class="stat-box">
+                <strong id="totalDocumentCount">0</strong>
+                <span>Total Documents</span>
+              </div>
+              <div class="stat-box">
+                <strong id="verifiedDocumentCount">0</strong>
+                <span>Verified</span>
+              </div>
+              <div class="stat-box">
+                <strong id="attentionDocumentCount">0</strong>
+                <span>Needs Attention</span>
+              </div>
+              <div class="stat-box">
+                <strong id="missingDocumentCount">0</strong>
+                <span>Missing</span>
+              </div>
+            </div>
+
+            <div class="readiness-progress">
+              <div class="progress-track"><span id="readinessProgressBar"></span></div>
+              <span id="readinessProgressText">0% document readiness</span>
+            </div>
+          </article>
+
+          <article class="card required-docs-card">
+            <div class="section-head compact-head">
+              <p class="eyebrow small">Documents You May Need</p>
+            </div>
+            <div id="missingDocumentsList" class="missing-docs-list"></div>
+          </article>
+        </section>
+
+        <section class="card category-panel">
+          <div class="section-head compact-head">
+            <p class="eyebrow small">Document Categories</p>
+          </div>
+          <div class="category-list" id="categoryList"></div>
+        </section>
+
+        <section class="doc-control-panel card">
+          <div class="controls-row">
+            <label class="search-field">
+              <span class="sr-only">Search documents</span>
+              <input type="search" id="documentSearch" placeholder="Search documents…" />
+            </label>
+
+            <div class="filter-group" id="statusFilterGroup">
+              <button type="button" class="filter-pill active" data-filter="all">All</button>
+              <button type="button" class="filter-pill" data-filter="verified">Verified</button>
+              <button type="button" class="filter-pill" data-filter="needs_attention">Needs Attention</button>
+              <button type="button" class="filter-pill" data-filter="expiring_soon">Expiring Soon</button>
+              <button type="button" class="filter-pill" data-filter="expired">Expired</button>
+              <button type="button" class="filter-pill" data-filter="missing">Missing</button>
+            </div>
+
+            <label class="sort-field">
+              <span class="sr-only">Sort documents</span>
+              <select id="documentSort">
+                <option value="recent">Recently Added</option>
+                <option value="expiry">Expiry Date</option>
+                <option value="name">Name</option>
+                <option value="status">Status</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <section class="vault-board">
+          <div class="card document-column">
+            <div class="section-head compact-head">
+              <h2>My Documents</h2>
+            </div>
+            <div id="documentList" class="document-grid"></div>
+          </div>
+
+          <aside class="insights-column">
+            <article class="card sidebar-card">
+              <div class="section-head compact-head">
+                <h3>Application Coverage</h3>
+              </div>
+              <div id="applicationCoverageList" class="coverage-list"></div>
+            </article>
+
+            <article class="card sidebar-card">
+              <div class="section-head compact-head">
+                <h3>Sharing Activity</h3>
+              </div>
+              <div id="sharingHistoryList" class="history-list"></div>
+            </article>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <button type="button" class="ai-fab" id="aiAssistantToggle" aria-label="Ask ADIVYA">
+      <span>🤖</span>
+      Ask ADIVYA
+    </button>
+
+    <aside class="ai-panel hidden" id="aiPanel" aria-live="polite">
+      <div class="ai-header">
+        <div>
+          <p class="eyebrow small">ADIVYA AI</p>
+          <strong>Document guidance</strong>
+        </div>
+        <button type="button" class="close-panel" id="closeAiPanel">×</button>
+      </div>
+      <div class="quick-questions">
+        <button type="button" class="ai-question" data-question="Which documents am I missing?">Which documents am I missing?</button>
+        <button type="button" class="ai-question" data-question="Which document expires soon?">Which document expires soon?</button>
+        <button type="button" class="ai-question" data-question="Where is my Income Certificate?">Where is my Income Certificate?</button>
+        <button type="button" class="ai-question" data-question="Which scholarships need this document?">Which scholarships need this document?</button>
+        <button type="button" class="ai-question" data-question="Why is this document flagged?">Why is this document flagged?</button>
+      </div>
+      <div class="ai-response" id="aiResponse">ADIVYA is reviewing your document readiness and scholarship requirements.</div>
+    </aside>
+
+    <div class="notification-panel hidden" id="notificationPanel" aria-live="polite">
+      <div class="notification-header">
+        <strong>ADIVYA Notifications</strong>
+        <button type="button" class="close-panel" id="closeNotificationPanel">×</button>
+      </div>
+      <div id="notificationList"></div>
+    </div>
+
+    <div class="modal hidden" id="uploadModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="upload"></div>
+      <div class="modal-panel large-panel" role="dialog" aria-modal="true" aria-labelledby="uploadModalTitle">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow small">Add Document</p>
+            <h3 id="uploadModalTitle">Upload to TrustVault</h3>
+          </div>
+          <button type="button" class="close-panel" data-close="upload">×</button>
+        </div>
+
+        <div class="upload-steps" id="uploadSteps">
+          <span class="step-dot active">1</span>
+          <span class="step-dot">2</span>
+          <span class="step-dot">3</span>
+          <span class="step-dot">4</span>
+          <span class="step-dot">5</span>
+        </div>
+
+        <div class="upload-view" id="uploadView">
+          <div class="upload-step-panel active" data-step="1">
+            <label>
+              <span>Select Document Type</span>
+              <select id="uploadDocumentType">
+                <option value="Education">Education</option>
+                <option value="Income">Income</option>
+                <option value="Identity">Identity</option>
+                <option value="Residence">Residence</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="upload-step-panel" data-step="2">
+            <label class="upload-dropzone">
+              <span>Upload File</span>
+              <input type="file" id="uploadFileInput" accept=".pdf,.jpg,.jpeg,.png" />
+            </label>
+            <div class="file-meta hidden" id="fileMetaBlock">
+              <strong id="selectedFileName">No file selected</strong>
+              <span id="selectedFileSize">0 KB</span>
+            </div>
+            <div class="upload-progress hidden" id="uploadProgressBlock">
+              <div class="progress-track"><span id="uploadProgressBar"></span></div>
+              <small id="uploadProgressText">0% uploaded</small>
+            </div>
+          </div>
+
+          <div class="upload-step-panel" data-step="3">
+            <div class="review-card">
+              <strong id="reviewTitle">Document review</strong>
+              <ul>
+                <li>Document type: <span id="reviewDocumentType">Education</span></li>
+                <li>File name: <span id="reviewFileName">--</span></li>
+                <li>File size: <span id="reviewFileSize">--</span></li>
+                <li>Student name: <span id="reviewStudentName">--</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="upload-step-panel" data-step="4">
+            <div class="verify-card">
+              <h4>ADIVYA is checking your document…</h4>
+              <div class="verify-steps">
+                <span>Reading document…</span>
+                <span>Checking required fields…</span>
+                <span>Checking consistency…</span>
+                <span>Checking expiry…</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="upload-step-panel" data-step="5">
+            <div class="final-upload-card">
+              <strong id="finalUploadStatus">Ready to save</strong>
+              <p>Your document is ready to be stored securely in TrustVault.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelUploadBtn">Cancel</button>
+          <button type="button" class="btn btn-primary" id="uploadNextBtn">Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal hidden" id="previewModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="preview"></div>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="previewModalTitle">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow small">Document preview</p>
+            <h3 id="previewModalTitle">Document</h3>
+          </div>
+          <button type="button" class="close-panel" data-close="preview">×</button>
+        </div>
+
+        <div class="preview-content" id="previewContent"></div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="closePreviewBtn">Close</button>
+          <button type="button" class="btn btn-secondary" id="replacePreviewBtn">Replace</button>
+          <button type="button" class="btn btn-danger" id="deletePreviewBtn">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal hidden" id="shareModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="share"></div>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow small">Consent-based sharing</p>
+            <h3 id="shareModalTitle">Share with this application?</h3>
+          </div>
+          <button type="button" class="close-panel" data-close="share">×</button>
+        </div>
+
+        <div class="share-content" id="shareContent"></div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelShareBtn">Cancel</button>
+          <button type="button" class="btn btn-primary" id="confirmShareBtn">Allow Sharing</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal hidden" id="privacyModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="privacy"></div>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow small">Privacy Center</p>
+            <h3 id="privacyModalTitle">ADIVYA Privacy Controls</h3>
+          </div>
+          <button type="button" class="close-panel" data-close="privacy">×</button>
+        </div>
+
+        <div class="privacy-content" id="privacyContent"></div>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <button type="button" class="mobile-item" data-nav="home">Home</button>
+      <button type="button" class="mobile-item" data-nav="dashboard">Dashboard</button>
+      <button type="button" class="mobile-item" data-nav="opportunities">Opportunities</button>
+      <button type="button" class="mobile-item active" data-nav="documents">Documents</button>
+      <button type="button" class="mobile-item" data-nav="profile">Profile</button>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
